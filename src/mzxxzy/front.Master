@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="front.master.cs" Inherits="mzxxzy.front" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>民族信息资源管理</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="header_top">
+            <div class="w960 center">
+                <div id="PanelLogin">
+                    <a href="#" class="welcome" onclick="gotologin()">[登录]</a>
+                </div>
+                <div class="toplinks">
+                    <a href="images_list.aspx">[图片资源]</a><a href="audio_list.aspx">[音频资源]</a><a href="video_list.aspx">[视频资源]</a><a href="animation_list.aspx">[动画资源]</a><a href="default.aspx">[返回首页]</a><a href="#" onclick="addBookmark(document.title, document.URL);">[加入收藏]</a>
+                </div>
+            </div>
+        </div>
+        <table style="width: 100%; margin: 0px auto; width: 980px;">
+            <tr>
+                <td style="height: 120px"></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <tr>
+                <td style="height: 80px; text-align: center">民族信息资源管理
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

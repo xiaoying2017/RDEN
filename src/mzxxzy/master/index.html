@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>民族教育资源库</title>
+    <link rel="stylesheet" type="text/css" href="/Content/lib/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/Content/lib/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/Content/css/style.css">
+
+    <script type="text/javascript" src="/Content/lib/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/Content/lib/easyui/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <div class="box">
+        <div class="menu-box">
+            <ul class="left">
+                <li><a href="#">[登录]</a></li>              
+            </ul>
+            <ul class="right">,
+                <li><a href="#">[图片资源]</a></li>
+                <li><a href="#">[音频资源]</a></li>
+                <li><a href="#">[视频资源]</a></li>
+                <li><a href="#">[动画资源]</a></li>
+                <li><a href="#">[返回首页]</a></li>
+                <li><a href="#">[加入收藏]</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="easyui-layout layout" data-options="fit:true">
+            <div data-options="region:'north',border:false" id="header">
+                <img src="images/logo.gif" /><br />
+                <div class="search-box">
+                    <div class="easyui-searchbox input-lg" data-options=""></div>
+                    <select>
+                        <option value="1">搜索知识</option>
+                        <option value="2">搜索资源</option>
+                    </select>
+                    <button class="easyui-linkbutton btn" data-options="iconCls:'icon-search'">搜索</button>
+                </div>
+            </div>
+            <div data-options="region:'south',split:true,border:false" id="footer">
+                <span>民族教育资源库</span>
+                <p>民族教育信息化教育部重点实验室<p>
+            </div>
+            <div data-options="region:'west',split:true,border:false" id="slider">
+                <div class="easyui-tabs" data-options="fit:true">
+                    <div class="nav" title="导航菜单">
+                        <ul class="easyui-tree">
+                            <li>
+                                <span>佤族[ID:1]</span>
+                                <ul>
+                                    <li data-options="state:'closed'">历史[ID:2]</li>
+                                    <li data-options="state:'closed'">社会[ID:3]</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>其它[ID:2986]</span>
+                                <ul>
+                                    <li data-options="state:'closed'">其它[ID:2]</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div data-options="region:'center',border:false" id="content">
+                <div class="easyui-tabs" data-options="fit:true">
+                    <div class="tab" title="图片资源列表">
+                        <div class="easyui-panel" data-options="fit:true,border:false" title="当前位置:>">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RDENModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="class">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="fid" Type="int" />
+          <Property Name="title" Type="nvarchar" MaxLength="30" />
+          <Property Name="disorder" Type="int" />
+        </EntityType>
+        <EntityType Name="knowledege">
+          <Key>
+            <PropertyRef Name="know_id" />
+          </Key>
+          <Property Name="know_id" Type="int" Nullable="false" />
+          <Property Name="keyword" Type="varchar" MaxLength="50" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+          <Property Name="know_content" Type="varchar(max)" />
+          <Property Name="know_type" Type="varchar" MaxLength="20" />
+          <Property Name="creattime" Type="datetime" />
+          <Property Name="edittime" Type="datetime" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="link">
+          <Key>
+            <PropertyRef Name="link_id" />
+          </Key>
+          <Property Name="link_id" Type="bigint" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="url" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="relate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="know_id" Type="int" Nullable="false" />
+          <Property Name="source_id" Type="int" Nullable="false" />
+          <Property Name="isdelete" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="source">
+          <Key>
+            <PropertyRef Name="source_id" />
+          </Key>
+          <Property Name="source_id" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+          <Property Name="creatdate" Type="datetime" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="sourcecontent" Type="nvarchar(max)" />
+          <Property Name="nationaltype" Type="varchar" MaxLength="20" />
+          <Property Name="classid" Type="int" />
+          <Property Name="edittime" Type="datetime" />
+          <Property Name="know_id" Type="int" Nullable="false" />
+          <Property Name="keyword" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="userrank">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="smallint" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="20" />
+          <Property Name="disorder" Type="int" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="user_admin" Type="varchar" MaxLength="20" />
+          <Property Name="user_psw" Type="varchar" MaxLength="20" />
+          <Property Name="user_name" Type="varchar" MaxLength="20" />
+          <Property Name="user_date" Type="datetime" />
+          <Property Name="user_tel" Type="varchar" MaxLength="20" />
+          <Property Name="rank" Type="smallint" />
+        </EntityType>
+        <EntityContainer Name="RDENModelStoreContainer">
+          <EntitySet Name="class" EntityType="Self.class" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="knowledege" EntityType="Self.knowledege" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="link" EntityType="Self.link" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="relate" EntityType="Self.relate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="source" EntityType="Self.source" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userrank" EntityType="Self.userrank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RDENModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="class">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="fid" Type="Int32" />
+          <Property Name="title" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="disorder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="knowledege">
+          <Key>
+            <PropertyRef Name="know_id" />
+          </Key>
+          <Property Name="know_id" Type="Int32" Nullable="false" />
+          <Property Name="keyword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="know_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="know_type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="creattime" Type="DateTime" Precision="3" />
+          <Property Name="edittime" Type="DateTime" Precision="3" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="link">
+          <Key>
+            <PropertyRef Name="link_id" />
+          </Key>
+          <Property Name="link_id" Type="Int64" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="relate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="know_id" Type="Int32" Nullable="false" />
+          <Property Name="source_id" Type="Int32" Nullable="false" />
+          <Property Name="isdelete" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="source">
+          <Key>
+            <PropertyRef Name="source_id" />
+          </Key>
+          <Property Name="source_id" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="creatdate" Type="DateTime" Precision="3" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="sourcecontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="nationaltype" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="classid" Type="Int32" />
+          <Property Name="edittime" Type="DateTime" Precision="3" />
+          <Property Name="know_id" Type="Int32" Nullable="false" />
+          <Property Name="keyword" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="userrank">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int16" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="disorder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="user_admin" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="user_psw" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="user_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="user_date" Type="DateTime" Precision="3" />
+          <Property Name="user_tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="rank" Type="Int16" />
+        </EntityType>
+        <EntityContainer Name="RDENEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="classes" EntityType="Self.class" />
+          <EntitySet Name="knowledeges" EntityType="Self.knowledege" />
+          <EntitySet Name="links" EntityType="Self.link" />
+          <EntitySet Name="relates" EntityType="Self.relate" />
+          <EntitySet Name="sources" EntityType="Self.source" />
+          <EntitySet Name="userranks" EntityType="Self.userrank" />
+          <EntitySet Name="users" EntityType="Self.user" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RDENModelStoreContainer" CdmEntityContainer="RDENEntities">
+          <EntitySetMapping Name="classes">
+            <EntityTypeMapping TypeName="RDENModel.class">
+              <MappingFragment StoreEntitySet="class">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="disorder" ColumnName="disorder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="knowledeges">
+            <EntityTypeMapping TypeName="RDENModel.knowledege">
+              <MappingFragment StoreEntitySet="knowledege">
+                <ScalarProperty Name="know_id" ColumnName="know_id" />
+                <ScalarProperty Name="keyword" ColumnName="keyword" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="know_content" ColumnName="know_content" />
+                <ScalarProperty Name="know_type" ColumnName="know_type" />
+                <ScalarProperty Name="creattime" ColumnName="creattime" />
+                <ScalarProperty Name="edittime" ColumnName="edittime" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="links">
+            <EntityTypeMapping TypeName="RDENModel.link">
+              <MappingFragment StoreEntitySet="link">
+                <ScalarProperty Name="link_id" ColumnName="link_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="url" ColumnName="url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="relates">
+            <EntityTypeMapping TypeName="RDENModel.relate">
+              <MappingFragment StoreEntitySet="relate">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="know_id" ColumnName="know_id" />
+                <ScalarProperty Name="source_id" ColumnName="source_id" />
+                <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sources">
+            <EntityTypeMapping TypeName="RDENModel.source">
+              <MappingFragment StoreEntitySet="source">
+                <ScalarProperty Name="source_id" ColumnName="source_id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="creatdate" ColumnName="creatdate" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="sourcecontent" ColumnName="sourcecontent" />
+                <ScalarProperty Name="nationaltype" ColumnName="nationaltype" />
+                <ScalarProperty Name="classid" ColumnName="classid" />
+                <ScalarProperty Name="edittime" ColumnName="edittime" />
+                <ScalarProperty Name="know_id" ColumnName="know_id" />
+                <ScalarProperty Name="keyword" ColumnName="keyword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userranks">
+            <EntityTypeMapping TypeName="RDENModel.userrank">
+              <MappingFragment StoreEntitySet="userrank">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="disorder" ColumnName="disorder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="RDENModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_admin" ColumnName="user_admin" />
+                <ScalarProperty Name="user_psw" ColumnName="user_psw" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_date" ColumnName="user_date" />
+                <ScalarProperty Name="user_tel" ColumnName="user_tel" />
+                <ScalarProperty Name="rank" ColumnName="rank" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

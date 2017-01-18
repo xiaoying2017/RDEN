@@ -1,0 +1,92 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="_Admin.master.cs" Inherits="mzxxzy.master._Admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8"/>
+	<title>少数民族文化信息资源管理系统</title>
+    <link rel="stylesheet" type="text/css" href="/Content/lib/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="/Content/lib/easyui/themes/icon.css"/>
+    <link rel="stylesheet" type="text/css" href="/Content/css/style.css"/>
+
+    <script type="text/javascript" src="/Content/lib/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/Content/lib/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/Content/js/sys.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="container">
+		<div class="easyui-layout layout" data-options="fit:true">
+			<div data-options="region:'north'" id="sys_header">
+				<div class="left logo">系统后台</div>
+				<div class="right theme-box">
+					<div class="menu">
+						<ul>
+							<li><a href="/">网站主页</a></li>|
+							<li><a href="/admin/index.aspx">系统主页</a></li>|
+							<li>您好：<a href="#">admin</a>，欢迎您！</li>|
+							<li><a href="#">注销</a></li>
+						</ul>
+					</div><br/>
+					<div class="theme">
+						<ul>
+							<li style="background-color: red;">1</li>
+							<li style="background-color: blue;">2</li>
+							<li style="background-color: yellow;">3</li>
+							<li style="background-color: gray;">4</li>
+							<li style="background-color: green;">5</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div data-options="region:'south',split:true,border:false" id="footer">
+				<span>少数民族文化信息资源管理系统</span>
+				<p>版权所有 民族教育信息化教育部重点实验室</p>
+			</div>
+			<div data-options="region:'west',split:true" title="主菜单" id="slider">
+				<div class="easyui-accordion" data-options="fit:true">
+					<div title="信息"></div>
+					<div title="前台">
+                        <ul class="easyui-tree">
+							<li>
+								<span>佤族[ID:1]</span>
+								<ul>
+									<li data-options="state:'closed'">历史[ID:2]</li>
+									<li data-options="state:'closed'">社会[ID:3]</li>
+								</ul>
+							</li>
+							<li>
+								<span>其它[ID:2986]</span>
+								<ul>
+									<li data-options="state:'closed'">其它[ID:2]</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div title="用户">
+                        <ul class="easyui-tree">
+							<li>
+								<span>用户列表</span>
+							</li>
+						</ul>
+                        <ul class="easyui-tree">
+                           <li>
+                               <span>添加用户</span>
+                          </li>
+                        </ul>
+					</div>
+					<div title="系统"></div>
+				</div>
+			</div>
+			<div data-options="region:'center',border:false" id="content">
+				<div class="easyui-tabs" data-options="fit:true">
+					<div class="tab" data-options="iconCls:'icon-print'" title="我的主页"></div>
+                    <div class="tab" data-options="iconCls:'icon-more',closable:true" title="用户列表"></div>
+                    <asp:ContentPlaceHolder ID="tabs" runat="server"></asp:ContentPlaceHolder>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

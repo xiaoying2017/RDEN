@@ -1,0 +1,12 @@
+﻿body {
+}
+
+.header_top {
+    height: 30px !important;
+    height: 29px;
+    line-height: 30px;
+    color: #676767;
+    overflow: hidden;
+    background: #def5fd;
+    float: right;
+}

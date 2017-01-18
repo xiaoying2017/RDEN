@@ -76,6 +76,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -118,10 +122,6 @@
     <Reference Include="Antlr3.Runtime">
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <Private>True</Private>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
       <Private>True</Private>
@@ -188,6 +188,7 @@
     <Content Include="admin\images\style.css" />
     <Content Include="admin\index.aspx" />
     <Content Include="admin\users\sys_user_list.aspx" />
+    <Content Include="admin\users\sys_user_list.html" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -1033,6 +1034,7 @@
     <None Include="Project_Readme.html" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="tools\submit_ajax.ashx" />
+    <Content Include="tools\admin_ajax.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1135,6 +1137,9 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="tools\admin_ajax.ashx.cs">
+      <DependentUpon>admin_ajax.ashx</DependentUpon>
+    </Compile>
     <Compile Include="tools\submit_ajax.ashx.cs">
       <DependentUpon>submit_ajax.ashx</DependentUpon>
     </Compile>
@@ -1157,6 +1162,10 @@
     <ProjectReference Include="..\mzxxzy.BLL\mzxxzy.BLL.csproj">
       <Project>{a1283fb5-045d-4d88-a042-3c14aa780433}</Project>
       <Name>mzxxzy.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\mzxxzy.Common\mzxxzy.Common.csproj">
+      <Project>{C3F92784-738D-4544-967A-10BE07E800CB}</Project>
+      <Name>mzxxzy.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\mzxxzy.Model\mzxxzy.Model.csproj">
       <Project>{7fdc4df0-f164-4e6c-b16b-10d80dc1dcfb}</Project>

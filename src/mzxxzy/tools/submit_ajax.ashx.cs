@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,9 +20,6 @@ namespace mzxxzy.tools
             {
                 case "user_login":
                     user_login(context);
-                    break;
-                case "user_list":
-                    user_list(context);
                     break;
             }
         }
@@ -70,24 +68,6 @@ namespace mzxxzy.tools
             if (string.IsNullOrEmpty(turl)) turl = "/";
             HttpContext.Current.Session["UserName"] = username;
             context.Response.Write("{\"status\":\"success\",\"msg\":\"登录成功！\",\"turl\":\"" + turl + "\"}");
-            context.Response.End();
-        }
-
-        private static void user_list(HttpContext context)
-        {
-            context.Response.ContentType = "application/json";
-
-            var pageIndex = Convert.ToInt32(context.Request["page"]);
-            var pageSize = Convert.ToInt32(context.Request["pageSize"]);
-            if (pageIndex <= 0) pageIndex = 1;
-            if (pageSize <= 0) pageSize = 10;
-            var bll = new BLL.Account.User();
-            var list = bll.GetUserList(pageIndex, pageSize);
-            var data = new { list = list, total = list.Count };
-
-            // TODO: 增加json序列化方法，将data序列化后再输出
-            context.Response.Write(data.ToString());
-
             context.Response.End();
         }
 

@@ -23,7 +23,7 @@ namespace mzxxzy.DAL.Account
         public List<Model.user> GetUserList(int pageIndex, int pageSize = 10)
         {
             if (pageIndex <= 0) pageIndex = 1;
-            var query = db.Set<Model.user>().Select(o => o);
+            var query = db.Set<Model.user>().Select(o => o).ToList();
             return query.Skip((pageIndex-1)*pageSize).Take(pageSize).ToList();
         }
     }
